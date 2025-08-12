@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Historical Places I've Visited</title>
+    <link rel="stylesheet" href="timeline.css" />
+    <style>
+      /* Base Styles */
+      :root {
+        --primary-color: #f5f2ed;
+        --secondary-color: #eae0d0;
+        --accent-color: #d6c0ae;
+        --light-color: #d29b90;
+        --dark-color: #333;
+        /* --primary-color: #5d3a3a;
+        --secondary-color: #8b5a5a;
+        --accent-color: #d4af37;
+        --light-color: #f5f5f5;
+        --dark-color: #333; */
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: var(--light-color);
+        color: var(--dark-color);
+        line-height: 1.6;
+      }
+
+      header {
+        background-color: #d9a299;
+        padding: 15px 0;
+      }
+
+      .navbar {
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #872341;
+      }
+
+      .logo {
+        font-size: 28px;
+        font-weight: bold;
+        letter-spacing: 1px;
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+      }
+
+      .nav-links li a {
+        color: #872341;
+        text-decoration: none;
+        position: relative;
+        padding-bottom: 5px;
+        transition: color 0.3s ease;
+      }
+
+      .nav-links li a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #872341;
+        transition: width 0.3s ease;
+      }
+
+      .nav-links li a:hover {
+        color: #872341;
+      }
+
+      .nav-links li a:hover::after {
+        width: 100%;
+      }
+
+      /* Navigation */
+      /* nav {
+        background-color: var(--primary-color);
+        padding: 1rem;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      nav ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        gap: 2rem;
+      }
+
+      nav a {
+        color: var(--light-color);
+        text-decoration: none;
+        font-weight: 500;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+      }
+
+      nav a:hover {
+        background-color: var(--secondary-color);
+      } */
+
+      /* Header */
+      /* header {
+        text-align: center;
+        padding: 3rem 1rem;
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+          url("https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/833c2987-1eef-4858-8801-30b19229418c.png")
+            center/cover no-repeat;
+        color: white;
+      }
+
+      header h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      } */
+
+      /* Main Content */
+      .container {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+      }
+
+      .intro {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 3rem;
+        max-width: 800px;
+        margin: 2rem auto;
+      }
+
+      .intro p {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      /* Historical Places Layout */
+      .places-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 4rem;
+        margin: 3rem 0;
+      }
+
+      .place-card {
+        display: flex;
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        border: 1px solid #eee;
+        min-height: 300px;
+      }
+
+      .place-card:nth-child(even) {
+        flex-direction: row-reverse;
+      }
+
+      .card-image {
+        flex: 1;
+        min-height: 300px;
+      }
+
+      .card-content {
+        flex: 1;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .place-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+        border-color: var(--accent-color);
+      }
+
+      .card-image {
+        height: 250px;
+        overflow: hidden;
+      }
+
+      .card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s;
+      }
+
+      .place-card:hover .card-image img {
+        transform: scale(1.05);
+      }
+
+      .card-content {
+        padding: 1.5rem;
+      }
+
+      .card-content h3 {
+        margin-bottom: 0.5rem;
+        color: var(--primary-color);
+      }
+
+      .card-content .location {
+        display: flex;
+        align-items: center;
+        color: var(--secondary-color);
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+      }
+
+      .card-content .date {
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 1rem;
+      }
+
+      .card-content .description {
+        margin-bottom: 1rem;
+      }
+
+      /* Footer */
+      footer {
+        text-align: center;
+        padding: 40px 20px;
+        background-color: #d9a299;
+        color: #fff;
+        margin-top: 60px;
+      }
+
+      footer p {
+        font-size: 1rem;
+        letter-spacing: 1px;
+      }
+      /* footer {
+        background-color: var(--primary-color);
+        color: var(--light-color);
+        text-align: center;
+        padding: 1.5rem;
+        margin-top: 3rem;
+      } */
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        header h1 {
+          font-size: 2.5rem;
+        }
+
+        nav ul {
+          flex-direction: column;
+          align-items: center;
+          gap: 0.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo">Iksha's Site</div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="timeline.html">Timelines</a></li>
+          <li><a href="tunes.html">Tunes</a></li>
+          <li><a href="d-tales.html">D-Tales</a></li>
+          <li><a href="wanderlog.html">Wanderlog</a></li>
+          <li><a href="aboutme.html">About Me</a></li>
+        </ul>
+      </nav>
+      <!-- <h1>Historical Places I've Visited</h1>
+      <p>Exploring the world's heritage one monument at a time</p> -->
+    </header>
+
+    <div class="container">
+      <section class="intro">
+        <h2>My Historical Adventures</h2>
+        <p>
+          History has always fascinated me, and I've been fortunate to visit
+          some incredible historical sites around the world. Each of these
+          places tells a unique story of human civilization, and walking through
+          them has been like traveling through time. Here are some of my most
+          memorable visits to historical landmarks.
+        </p>
+      </section>
+
+      <section class="places-grid">
+        <!-- Place 1 -->
+        <article class="place-card">
+          <div class="card-image">
+            <img
+              src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5c249510-3648-44e8-bcd6-4dc601d961e8.png"
+              alt="The Great Wall of China"
+            />
+          </div>
+          <div class="card-content">
+            <h2>The Great Wall of China</h2>
+            <div class="location">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>Beijing, China • June 2019</span>
+            </div>
+            <p class="description">
+              Walking along this ancient defensive structure gave me chills
+              thinking about its 2,300-year history. The section at Mutianyu was
+              particularly breathtaking with its watchtowers stretching across
+              mountain ridges.
+            </p>
+            <div class="memory">
+              <p>
+                <em
+                  >"The sheer scale made me feel so small. I'll never forget the
+                  golden light at sunset."</em
+                >
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Place 2 -->
+        <article class="place-card">
+          <div class="card-image">
+            <img
+              src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/69d657cf-4c44-42bd-a035-29da1bf5e383.png"
+              alt="Machu Picchu ruins surrounded by lush green mountains with mist rolling through the valleys in Peru"
+            />
+          </div>
+          <div class="card-content">
+            <h3>Machu Picchu</h3>
+            <div class="location">Cusco Region, Peru</div>
+            <div class="date">Visited: November 2020</div>
+            <p class="description">
+              The sunrise over this lost Inca city was one of the most magical
+              moments of my life. The precision stonework blended perfectly with
+              the mountain landscape.
+            </p>
+          </div>
+        </article>
+
+        <!-- Place 3 -->
+        <article class="place-card">
+          <div class="card-image">
+            <img
+              src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8b8ed178-0b27-4e4d-8572-97a53962e4b1.png"
+              alt="The Colosseum in Rome during golden hour showing its iconic arches and weathered stone walls"
+            />
+          </div>
+          <div class="card-content">
+            <h3>The Colosseum</h3>
+            <div class="location">Rome, Italy</div>
+            <div class="date">Visited: September 2018</div>
+            <p class="description">
+              Standing in this ancient amphitheater, I could almost hear the
+              roar of the crowd from 2,000 years ago. The engineering marvels of
+              the underground passages were especially impressive.
+            </p>
+          </div>
+        </article>
+
+        <!-- Place 4 -->
+        <article class="place-card">
+          <div class="card-image">
+            <img
+              src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/72f2c91e-191b-41e1-b245-606e2cb9c7be.png"
+              alt="Petra's Treasury facade carved into red sandstone cliffs in Jordan with dramatic lighting"
+            />
+          </div>
+          <div class="card-content">
+            <h3>Petra</h3>
+            <div class="location">Ma'an, Jordan</div>
+            <div class="date">Visited: March 2021</div>
+            <p class="description">
+              Walking through the Siq canyon and suddenly seeing the Treasury
+              appear through the narrow passage was unforgettable. The Nabatean
+              architecture carved directly into rock was astonishing.
+            </p>
+          </div>
+        </article>
+
+        <!-- Place 5 -->
+        <article class="place-card">
+          <div class="card-image">
+            <img
+              src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/89c5814c-9988-4a68-8ef7-014bfd2c98dc.png"
+              alt="Angkor Wat temple complex at sunrise with reflection in water and golden light on ancient stone"
+            />
+          </div>
+          <div class="card-content">
+            <h3>Angkor Wat</h3>
+            <div class="location">Siem Reap, Cambodia</div>
+            <div class="date">Visited: January 2020</div>
+            <p class="description">
+              The scale and detail of this temple city amazed me. The
+              bas-reliefs depicting Hindu epics stretched for hundreds of meters
+              with incredible craftsmanship.
+            </p>
+          </div>
+        </article>
+
+        <!-- Place 6 -->
+        <article class="place-card">
+          <div class="card-image">
+            <img
+              src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/51d000c9-fb57-4595-85fb-55fe807cc46e.png"
+              alt="The Parthenon on the Acropolis in Athens with clear blue skies and Doric columns in perfect alignment"
+            />
+          </div>
+          <div class="card-content">
+            <h3>The Parthenon</h3>
+            <div class="location">Athens, Greece</div>
+            <div class="date">Visited: July 2019</div>
+            <p class="description">
+              Seeing this symbol of ancient Greek civilization in person was
+              surreal. The architectural refinements that create optical
+              illusions are even more impressive up close.
+            </p>
+          </div>
+        </article>
+      </section>
+    </div>
+    <footer>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+      </div>
+      <p>&copy; 2025 Iksha's Site. All rights reserved.</p>
+    </footer>
+
+    <!-- <footer>
+      <p>© 2023 My Personal Website. All rights reserved.</p>
+    </footer> -->
+  </body>
+</html>

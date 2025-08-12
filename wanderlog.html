@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travel Adventures</title>
+    <link rel="stylesheet" href="wanderlog.css" />
+    <style>
+      /* Base Styles */
+      :root {
+        --primary-color: #2c3e50;
+        --secondary-color: #3498db;
+        --accent-color: #e74c3c;
+        --light-color: #ecf0f1;
+        --dark-color: #2c3e50;
+        --text-color: #333;
+        --text-light: #7f8c8d;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: #f9f9f9;
+      }
+
+      /* Header Styles */
+      /* header { */
+      background: pink;
+      /* url("https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/0eb617ca-9e2d-4889-b453-fe3ec5b04c80.png")
+            center/cover no-repeat;
+        color: white;
+        text-align: center;
+        padding: 4rem 2rem;
+        position: relative; */
+      /* } */
+
+      /* .header-content {
+        max-width: 800px;
+        margin: 0 auto;
+      } */
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        font-weight: 300;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Navigation */
+      header {
+        background-color: #d9a299;
+        padding: 15px 0;
+      }
+
+      .navbar {
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #872341;
+      }
+
+      .logo {
+        font-size: 28px;
+        font-weight: bold;
+        letter-spacing: 1px;
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+      }
+
+      .nav-links li a {
+        color: #872341;
+        text-decoration: none;
+        position: relative;
+        padding-bottom: 5px;
+        transition: color 0.3s ease;
+      }
+
+      .nav-links li a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #872341;
+        transition: width 0.3s ease;
+      }
+
+      .nav-links li a:hover {
+        color: #872341;
+      }
+
+      .nav-links li a:hover::after {
+        width: 100%;
+      }
+      /* nav {
+        background-color: var(--primary-color);
+        position: relative;
+        z-index: 100;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: white;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+      }
+
+      .nav-links li {
+        margin-left: 1.5rem;
+      }
+
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--secondary-color);
+      } */
+
+      /* Main Content */
+      .container {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 0 2rem;
+      }
+
+      .intro {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 3rem;
+        max-width: 800px;
+        margin: 2rem auto;
+        text-align: center;
+      }
+
+      .intro p {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 3rem;
+        font-size: 2rem;
+        color: var(--dark-color);
+        position: relative;
+      }
+
+      .section-title::after {
+        content: "";
+        display: block;
+        width: 80px;
+        height: 3px;
+        background-color: var(--secondary-color);
+        margin: 0.5rem auto;
+      }
+
+      /* Travel Sections */
+      .travel-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-bottom: 4rem;
+      }
+
+      .travel-card {
+        background-color: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .travel-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .travel-card-img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .travel-card-content {
+        padding: 1.5rem;
+      }
+
+      .travel-card-title {
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+        color: var(--dark-color);
+      }
+
+      .travel-card-location {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+        color: var(--text-light);
+      }
+
+      .travel-card-location i {
+        margin-right: 0.5rem;
+        color: var(--secondary-color);
+      }
+
+      .travel-card-description {
+        margin-bottom: 1.5rem;
+      }
+
+      .travel-card-date {
+        display: flex;
+        justify-content: space-between;
+        color: var(--text-light);
+        font-size: 0.9rem;
+      }
+
+      .visited-status {
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+
+      .visited {
+        background-color: rgba(46, 204, 113, 0.2);
+        color: #2ecc71;
+      }
+
+      .planned {
+        background-color: rgba(241, 196, 15, 0.2);
+        color: #f1c40f;
+      }
+
+      /* Map Section */
+      .map-section {
+        margin-bottom: 4rem;
+        text-align: center;
+      }
+
+      .map-container {
+        height: 400px;
+        width: 100%;
+        background-color: #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-top: 2rem;
+        background-image: url("https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/188217d3-2a6c-4717-af44-0607bd8f9a15.png");
+        background-size: cover;
+        background-position: center;
+        position: relative;
+      }
+
+      .map-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.1),
+          rgba(0, 0, 0, 0.3)
+        );
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .map-overlay h3 {
+        color: white;
+        font-size: 2rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Footer */
+
+      footer {
+        text-align: center;
+        padding: 40px 20px;
+        background-color: #d9a299;
+        color: #fff;
+        margin-top: 60px;
+      }
+
+      footer p {
+        font-size: 1rem;
+        letter-spacing: 1px;
+      }
+      /* footer {
+        background-color: var(--dark-color);
+        color: white;
+        text-align: center;
+        padding: 3rem 0;
+        margin-top: 3rem;
+      }
+
+      .footer-content {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        margin: 1rem 0;
+      }
+
+      .footer-links li {
+        margin: 0 1rem;
+      }
+
+      .footer-links a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        color: var(--secondary-color);
+      } */
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .nav-container {
+          flex-direction: column;
+          padding: 1rem;
+        }
+
+        .nav-links {
+          margin-top: 1rem;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        .nav-links li {
+          margin: 0.5rem 1rem;
+        }
+
+        .travel-grid {
+          grid-template-columns: 1fr;
+        }
+
+        h1 {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <nav>
+      <div class="nav-container">
+        <div class="logo">My Travels</div>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/music">Music</a></li>
+          <li><a href="/dramas">Dramas</a></li>
+          <li><a href="/history">Historical Places</a></li>
+          <li><a href="/travel">Travel</a></li>
+        </ul>
+      </div>
+    </nav> -->
+
+    <header>
+      <div class="header-content">
+        <nav class="navbar">
+          <div class="logo">Iksha's Site</div>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="timeline.html">Timelines</a></li>
+            <li><a href="tunes.html">Tunes</a></li>
+            <li><a href="d-tales.html">D-Tales</a></li>
+            <li><a href="wanderlog.html">Wanderlog</a></li>
+            <li><a href="aboutme.html">About Me</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <section class="intro">
+      <h1>My Travel Adventures</h1>
+      <p class="subtitle">Exploring the world one destination at a time</p>
+
+      <!-- <h2>My Historical Adventures</h2>
+      <p>
+        History has always fascinated me, and I've been fortunate to visit
+        some incredible historical sites around the world. Each of these
+        places tells a unique story of human civilization, and walking through
+        them has been like traveling through time. Here are some of my most
+        memorable visits to historical landmarks.
+      </p> -->
+    </section>
+
+    <!-- <nav>
+      <div class="nav-container">
+        <div class="logo">My Travels</div>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/music">Music</a></li>
+          <li><a href="/dramas">Dramas</a></li>
+          <li><a href="/history">Historical Places</a></li>
+          <li><a href="/travel">Travel</a></li>
+        </ul>
+      </div>
+    </nav> -->
+
+    <div class="container">
+      <section id="visited">
+        <h2 class="section-title">Places I've Visited</h2>
+        <div class="travel-grid">
+          <!-- Destination Card 1 -->
+          <div class="travel-card">
+            <!-- <img
+              src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/143c2d8b-daca-4fa7-bae3-c590c0587a9c.png"
+              alt="Santorini, Greece - White buildings with blue domes against the Aegean Sea at sunset"
+              class="travel-card-img"
+            /> -->
+            <div class="travel-card-content">
+              <h3 class="travel-card-title">Santorini</h3>
+              <div class="travel-card-location">
+                <i>📍</i>
+                <span>Greece</span>
+              </div>
+              <p class="travel-card-description">
+                The stunning white-washed buildings with blue domes overlooking
+                the caldera created a picture-perfect sunset every evening.
+              </p>
+              <div class="travel-card-date">
+                <span>June 2023</span>
+                <span class="visited-status visited">Visited</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Destination Card 2 -->
+          <div class="travel-card">
+            <!-- <img
+              src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c655d559-40a1-4833-8ebc-9bc77a4a6e57.png"
+              alt="Kyoto, Japan - Traditional Japanese temple with autumn foliage in Arashiyama"
+              class="travel-card-img"
+            /> -->
+            <div class="travel-card-content">
+              <h3 class="travel-card-title">Kyoto</h3>
+              <div class="travel-card-location">
+                <i>📍</i>
+                <span>Japan</span>
+              </div>
+              <p class="travel-card-description">
+                Walking through bamboo forests and visiting centuries-old
+                temples immersed me in Japan's rich cultural heritage.
+              </p>
+              <div class="travel-card-date">
+                <span>November 2022</span>
+                <span class="visited-status visited">Visited</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Destination Card 3 -->
+          <div class="travel-card">
+            <!-- <img
+              src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a230a512-fd81-4c43-8917-cda345473274.png"
+              alt="Banff National Park, Canada - Turquoise lake surrounded by snow-capped Rocky Mountains"
+              class="travel-card-img"
+            /> -->
+            <div class="travel-card-content">
+              <h3 class="travel-card-title">Banff National Park</h3>
+              <div class="travel-card-location">
+                <i>📍</i>
+                <span>Canada</span>
+              </div>
+              <p class="travel-card-description">
+                The majestic Canadian Rockies with their crystal-clear lakes
+                were even more breathtaking than photos could capture.
+              </p>
+              <div class="travel-card-date">
+                <span>August 2021</span>
+                <span class="visited-status visited">Visited</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="planned">
+        <h2 class="section-title">My Travel Bucket List</h2>
+        <div class="travel-grid">
+          <!-- Destination Card 4 -->
+          <div class="travel-card">
+            <!-- <img
+              src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/60e48254-75f1-43b9-926c-18feeb226e81.png"
+              alt="Machu Picchu, Peru - Ancient Inca city ruins amidst misty Andes mountains at sunrise"
+              class="travel-card-img"
+            /> -->
+            <div class="travel-card-content">
+              <h3 class="travel-card-title">Machu Picchu</h3>
+              <div class="travel-card-location">
+                <i>📍</i>
+                <span>Peru</span>
+              </div>
+              <p class="travel-card-description">
+                This ancient Incan citadel high in the Andes mountains has been
+                on my bucket list for years.
+              </p>
+              <div class="travel-card-date">
+                <span>Planning for 2024</span>
+                <span class="visited-status planned">Planned</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Destination Card 5 -->
+          <div class="travel-card">
+            <!-- <img
+              src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d97b402f-089f-41ec-a817-a4d5e378a804.png"
+              alt="Northern Lights in Tromsø, Norway - Green aurora borealis dancing across dark Arctic sky"
+              class="travel-card-img"
+            /> -->
+            <div class="travel-card-content">
+              <h3 class="travel-card-title">Northern Lights</h3>
+              <div class="travel-card-location">
+                <i>📍</i>
+                <span>Norway</span>
+              </div>
+              <p class="travel-card-description">
+                Watching the aurora borealis paint the sky in vibrant colors is
+                a dream I hope to experience soon.
+              </p>
+              <div class="travel-card-date">
+                <span>Planning for 2024</span>
+                <span class="visited-status planned">Planned</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Destination Card 6 -->
+          <div class="travel-card">
+            <!-- <img
+              src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/daa6dc08-b5fb-4365-98e2-69415dfdfa4a.png"
+              alt="Serengeti National Park, Tanzania - Large herd of wildebeest migrating across golden savanna"
+              class="travel-card-img"
+            /> -->
+            <div class="travel-card-content">
+              <h3 class="travel-card-title">Serengeti</h3>
+              <div class="travel-card-location">
+                <i>📍</i>
+                <span>Tanzania</span>
+              </div>
+              <p class="travel-card-description">
+                Witnessing the great migration of wildlife across Africa's
+                plains would be an unforgettable experience.
+              </p>
+              <div class="travel-card-date">
+                <span>Planning for 2025</span>
+                <span class="visited-status planned">Planned</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="map-section">
+        <h2 class="section-title">My Travel Map</h2>
+        <p>Explore the places I've been and where I'm going next</p>
+        <div class="map-container">
+          <div class="map-overlay">
+            <h3>Interactive Travel Map</h3>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+      </div>
+      <p>&copy; 2025 Iksha's Site. All rights reserved.</p>
+    </footer>
+
+    <!-- <footer>
+      <div class="footer-content">
+        <p>© 2023 My Personal Travel Site. All rights reserved.</p>
+        <ul class="footer-links">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Social Media</a></li>
+        </ul>
+      </div>
+    </footer> -->
+  </body>
+</html>

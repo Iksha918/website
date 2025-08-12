@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Music I Like</title>
+    <style>
+      :root {
+        --background-color: #f4f4f4;
+        --header-background: #d9a299;
+        --primary-color: #872341;
+        --hover-background: #f9f9f9;
+        --border-color-rock: #bc002d;
+        --border-color-pop: #a51931;
+        --border-color-jazz: #cd2e3a;
+        --border-color-classical: #e30a17;
+        --border-color-hiphop: #de2910;
+        --border-color-electronic: #0038a8;
+        --footer-background: #d9a299;
+        --footer-text-color: #fff;
+        --link-hover-color: #667eea;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        color: #333;
+        background-color: var(--background-color);
+      }
+
+      header {
+        background-color: var(--header-background);
+        padding: 15px 0;
+      }
+
+      .navbar {
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: var(--primary-color);
+      }
+
+      .logo {
+        font-size: 28px;
+        font-weight: bold;
+        letter-spacing: 1px;
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+      }
+
+      .nav-links li a {
+        color: var(--primary-color);
+        text-decoration: none;
+        position: relative;
+        padding-bottom: 5px;
+        transition: color 0.3s ease;
+      }
+
+      .nav-links li a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: var(--primary-color);
+        transition: width 0.3s ease;
+      }
+
+      .nav-links li a:hover {
+        color: var(--primary-color);
+      }
+
+      .nav-links li a:hover::after {
+        width: 100%;
+      }
+
+      .hero {
+        text-align: center;
+        padding: 120px 20px;
+        background: linear-gradient(135deg, #4b6cb7 0%, #182848 100%);
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100px;
+        background: linear-gradient(to bottom, transparent, #f4f4f4);
+        z-index: 1;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+        margin-bottom: 20px;
+      }
+
+      .hero p {
+        font-size: 20px;
+        margin-bottom: 40px;
+      }
+
+      .main {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+
+      .music-list {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-bottom: 20px;
+        border-left: 5px solid;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .music-list:hover {
+        transform: translateX(5px);
+        box-shadow: 0 7px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .music-list-header {
+        font-size: 24px;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #eee;
+      }
+
+      .music-items {
+        list-style: none;
+      }
+
+      .music-item {
+        padding: 12px 10px;
+        border-bottom: 1px dashed #eee;
+        transition: background-color 0.2s ease;
+      }
+
+      .music-item:last-child {
+        border-bottom: none;
+      }
+
+      .music-item:hover {
+        background-color: var(--hover-background);
+      }
+
+      /* Add genre-specific border colors */
+      .music-list:nth-child(1) {
+        border-color: var(--border-color-rock);
+      } /* Rock */
+      .music-list:nth-child(2) {
+        border-color: var(--border-color-pop);
+      } /* Pop */
+      .music-list:nth-child(3) {
+        border-color: var(--border-color-jazz);
+      } /* Jazz */
+      .music-list:nth-child(4) {
+        border-color: var(--border-color-classical);
+      } /* Classical */
+      .music-list:nth-child(5) {
+        border-color: var(--border-color-hiphop);
+      } /* Hip Hop */
+      .music-list:nth-child(6) {
+        border-color: var(--border-color-electronic);
+      } /* Electronic */
+
+      .container h3 {
+        margin-top: 15px;
+        font-size: 1.5rem;
+        color: #333;
+      }
+
+      footer {
+        text-align: center;
+        padding: 40px 20px;
+        background-color: var(--footer-background);
+        color: var(--footer-text-color);
+        margin-top: 60px;
+      }
+
+      footer p {
+        font-size: 1rem;
+        letter-spacing: 1px;
+      }
+
+      .social-links {
+        margin: 20px 0;
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+      }
+
+      .social-links a {
+        color: var(--footer-text-color);
+        font-size: 1.5rem;
+        transition: all 0.3s ease;
+      }
+
+      .social-links a:hover {
+        color: var(--link-hover-color);
+        transform: translateY(-3px);
+      }
+
+      @media (max-width: 600px) {
+        .hero h1 {
+          font-size: 36px;
+        }
+
+        .hero p {
+          font-size: 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo">Iksha's Site</div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="timeline.html">Timelines</a></li>
+          <li><a href="tunes.html">Tunes</a></li>
+          <li><a href="d-tales.html">D-Tales</a></li>
+          <li><a href="wanderlog.html">Wanderlog</a></li>
+          <li><a href="aboutme.html">About Me</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h1>My Musical Journey</h1>
+        <p class="highlight-text">
+          From rock anthems to soothing classical melodies - explore my
+          favorites
+        </p>
+      </section>
+
+      <div class="main">
+        <div class="music-list">
+          <h3 class="music-list-header">Rock Music</h3>
+          <ul class="music-items">
+            <li class="music-item">Bohemian Rhapsody - Queen</li>
+            <li class="music-item">Stairway to Heaven - Led Zeppelin</li>
+            <li class="music-item">Hotel California - Eagles</li>
+            <li class="music-item">Back in Black - AC/DC</li>
+          </ul>
+        </div>
+        <div class="music-list">
+          <h3 class="music-list-header">Pop Music</h3>
+          <ul class="music-items">
+            <li class="music-item">Blinding Lights - The Weeknd</li>
+            <li class="music-item">Shape of You - Ed Sheeran</li>
+            <li class="music-item">Bad Guy - Billie Eilish</li>
+            <li class="music-item">Levitating - Dua Lipa</li>
+          </ul>
+        </div>
+        <div class="music-list">
+          <h3 class="music-list-header">Jazz Music</h3>
+          <ul class="music-items">
+            <li class="music-item">Take Five - Dave Brubeck</li>
+            <li class="music-item">So What - Miles Davis</li>
+            <li class="music-item">Feeling Good - Nina Simone</li>
+            <li class="music-item">My Favorite Things - John Coltrane</li>
+          </ul>
+        </div>
+        <div class="music-list">
+          <h3 class="music-list-header">Classical Music</h3>
+          <ul class="music-items">
+            <li class="music-item">Clair de Lune - Debussy</li>
+            <li class="music-item">Symphony No. 5 - Beethoven</li>
+            <li class="music-item">The Four Seasons - Vivaldi</li>
+            <li class="music-item">Swan Lake - Tchaikovsky</li>
+          </ul>
+        </div>
+        <div class="music-list">
+          <h3 class="music-list-header">Hip Hop Music</h3>
+          <ul class="music-items">
+            <li class="music-item">Sicko Mode - Travis Scott</li>
+            <li class="music-item">HUMBLE. - Kendrick Lamar</li>
+            <li class="music-item">God's Plan - Drake</li>
+            <li class="music-item">Juicy - The Notorious B.I.G.</li>
+          </ul>
+        </div>
+        <div class="music-list">
+          <h3 class="music-list-header">Electronic Music</h3>
+          <ul class="music-items">
+            <li class="music-item">Titanium - David Guetta ft. Sia</li>
+            <li class="music-item">Wake Me Up - Avicii</li>
+            <li class="music-item">Strobe - Deadmau5</li>
+            <li class="music-item">Animals - Martin Garrix</li>
+          </ul>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+      </div>
+      <p>&copy; 2025 Iksha's Site. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

@@ -10,7 +10,7 @@
 
       body {
         font-family: "Poppins", sans-serif;
-        background-color: #f8f9fa;
+        background-color: #f0e4d3;
         color: #333;
         scroll-behavior: smooth;
       }
@@ -93,7 +93,7 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: transform 10s ease;
+        /* transition: transform 10s ease; */
       }
 
       .hero:hover .hero-bg {
@@ -104,7 +104,7 @@
         width: 200px;
         height: 200px;
         border-radius: 50%;
-        border: 5px solid rgba(255, 255, 255, 0.2);
+        border: 5px solid rgba(223, 173, 173, 0.888);
         transition: all 0.3s ease;
       }
 
@@ -126,11 +126,11 @@
         left: 0;
         width: 50%;
         height: 3px;
-        background: linear-gradient(90deg, #6366f1, #a855f7);
+        background: linear-gradient(90deg, #d6c0ae, #c49999);
       }
 
       .info-card {
-        background: white;
+        background: #f0e4d3;
         border-radius: 15px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         transition: all 0.3s ease;
@@ -149,7 +149,7 @@
       .like-item:hover,
       .hobby-item:hover {
         transform: scale(1.05);
-        background-color: #6366f1;
+        background-color: #d9a299;
         color: white;
       }
 
@@ -161,7 +161,7 @@
         width: 10px;
         height: 10px;
         border-radius: 50%;
-        background: #6366f1;
+        background: #d9a299;
       }
 
       .mood-icon {
@@ -212,24 +212,25 @@
     <!-- Hero Section -->
     <section class="hero flex items-center justify-center text-white">
       <img
-        src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ecd145cd-a175-4001-ba1c-3bec30813d71.png"
+        src="aboutme.png"
         alt="Portrait background showing a creative workspace with artistic elements, plants, and warm lighting"
         class="hero-bg"
       />
 
       <div class="container mx-auto px-6 relative z-10 text-center">
         <img
-          src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ecda8629-64a1-4f93-bc54-be8f7f2e7006.png"
+          src="pic.jpg"
+          style="height: 300px; width: 230px"
           alt="Professional headshot of me smiling against a neutral background, wearing casual smart attire"
           class="profile-img mx-auto mb-8"
         />
 
-        <h1 class="text-5xl font-bold mb-4">Hello, I'm [Your Name]</h1>
+        <h1 class="text-5xl font-bold mb-4">Hello, I'm Iksha</h1>
         <p class="text-xl mb-8 max-w-2xl mx-auto">
           Creative Professional | Passionate Explorer | Life Enthusiast
         </p>
 
-        <div class="flex justify-center gap-6">
+        <!-- <div class="flex justify-center gap-6">
           <a
             href="#about"
             class="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 rounded-full transition"
@@ -240,7 +241,7 @@
             class="px-6 py-3 border-2 border-white hover:bg-white hover:text-indigo-600 rounded-full transition"
             >My Interests</a
           >
-        </div>
+        </div> -->
       </div>
     </section>
 
@@ -251,28 +252,28 @@
 
         <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           <div class="info-card p-8">
-            <h3 class="text-2xl font-semibold mb-4 text-indigo-600">
+            <h3 class="text-2xl font-semibold mb-4 text-pink-600">
               Personal Details
             </h3>
             <ul class="space-y-3">
-              <li><strong>Age:</strong> [Your Age]</li>
-              <li><strong>Location:</strong> [Your City], [Your Country]</li>
-              <li><strong>Occupation:</strong> [Your Profession]</li>
-              <li><strong>Education:</strong> [Your Degree/Qualifications]</li>
-              <li><strong>Personality:</strong> [Your Personality Traits]</li>
+              <li><strong>Age:</strong> 21</li>
+              <li><strong>Location:</strong> Gandhinagar, India</li>
+              <li><strong>Occupation:</strong> Student</li>
+              <li><strong>Education:</strong> B.SC.IT/M.DES</li>
+              <li><strong>Personality:</strong> Creative & Curious</li>
             </ul>
           </div>
 
           <div class="info-card p-8">
-            <h3 class="text-2xl font-semibold mb-4 text-indigo-600">
+            <h3 class="text-2xl font-semibold mb-4 text-pink-600">
               Quick Facts
             </h3>
             <ul class="space-y-3">
-              <li>🌎 Traveled to [Number] countries</li>
-              <li>☕ Coffee or Tea? [Your Preference]</li>
-              <li>🐶 Pets? [Yes/No and names]</li>
-              <li>📚 Currently reading: [Current Book]</li>
-              <li>🎵 Listening to: [Favorite Music/Artist]</li>
+              <li>🌎 Traveled to 10 states</li>
+              <li>☕ Coffee or Tea? Tea</li>
+              <li>🐶 Pets? Dog</li>
+              <li>📚 Currently reading: Ikigai</li>
+              <li>🎵 Listening to: Tum Se Hi/Mohit Chauhan</li>
             </ul>
           </div>
         </div>
@@ -288,7 +289,7 @@
 
         <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-12">
           <div class="info-card p-6 text-center">
-            <h3 class="text-xl font-semibold mb-4 text-indigo-600">Hobbies</h3>
+            <h3 class="text-xl font-semibold mb-4 text-pink-600">Hobbies</h3>
             <div class="grid grid-cols-2 gap-3">
               <div class="hobby-item p-3 bg-gray-100 rounded-lg">
                 Photography
@@ -302,7 +303,7 @@
           </div>
 
           <div class="info-card p-6">
-            <h3 class="text-xl font-semibold mb-4 text-center text-indigo-600">
+            <h3 class="text-xl font-semibold mb-4 text-center text-pink-600">
               Likes
             </h3>
             <ul class="space-y-3">
@@ -325,7 +326,7 @@
           </div>
 
           <div class="info-card p-6">
-            <h3 class="text-xl font-semibold mb-4 text-center text-indigo-600">
+            <h3 class="text-xl font-semibold mb-4 text-center text-pink-600">
               Dislikes
             </h3>
             <ul class="space-y-3">
@@ -383,38 +384,48 @@
 
         <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           <div class="info-card overflow-hidden">
-            <img
+            <!-- <img
               src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5326f28f-4a5c-48c2-b0c1-7cf0509dd3d8.png"
               alt="Delicious pasta dish with creamy sauce, mushrooms, and fresh herbs on a white plate"
               class="w-full h-48 object-cover"
-            />
+            /> -->
             <div class="p-6">
               <h3 class="text-xl font-semibold mb-2">Favorite Meal</h3>
-              <p>[Your favorite dish] - [Description why you love it]</p>
+              <p>
+                Pav Bhaji - Soft, buttery buns with spicy mashed vegetables…
+                it’s comfort on a plate. It reminds me of cozy evenings and
+                laughter with friends.
+              </p>
             </div>
           </div>
 
           <div class="info-card overflow-hidden">
-            <img
+            <!-- <img
               src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/73d2aa7d-e5c0-4d62-9d37-28497d6d5ee5.png"
               alt="Colorful smoothie bowl topped with fresh fruits, nuts, and seeds"
               class="w-full h-48 object-cover"
-            />
+            /> -->
             <div class="p-6">
               <h3 class="text-xl font-semibold mb-2">Healthy Choice</h3>
-              <p>[Your go-to healthy meal] - [What you like about it]</p>
+              <p>
+                Sprout Salad - Fresh, colorful, and full of energy. I love how
+                it feels light yet keeps me going through the day.
+              </p>
             </div>
           </div>
 
           <div class="info-card overflow-hidden">
-            <img
+            <!-- <img
               src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/bb3100d3-f3bc-4925-8c47-9fd0137f3f7e.png"
               alt="Decadent chocolate dessert with berries and mint garnish"
               class="w-full h-48 object-cover"
-            />
+            /> -->
             <div class="p-6">
               <h3 class="text-xl font-semibold mb-2">Guilty Pleasure</h3>
-              <p>[Your indulgence food] - [When you enjoy it most]</p>
+              <p>
+                Chocolate Brownie with Ice Cream - Warm, gooey, and sweet… best
+                enjoyed late at night when the world is quiet.
+              </p>
             </div>
           </div>
         </div>
